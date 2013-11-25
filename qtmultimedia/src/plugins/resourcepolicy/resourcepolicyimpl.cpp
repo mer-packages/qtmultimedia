@@ -134,7 +134,5 @@ void ResourcePolicyImpl::handleResourcesLost()
         m_status = Initial;
         emit resourcesLost();
     }
-
-    m_resourceSet->release();
 }
 
