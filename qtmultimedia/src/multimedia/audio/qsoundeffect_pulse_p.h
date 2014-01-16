@@ -153,6 +153,7 @@ private:
     bool    m_playQueued;
     bool    m_stopping;
     int     m_volume;
+    bool    m_customVolumeSet;
     int     m_loopCount;
     int     m_runningCount;
     QUrl    m_source;
