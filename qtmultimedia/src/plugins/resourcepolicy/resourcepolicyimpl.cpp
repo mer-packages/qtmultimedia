@@ -92,8 +92,10 @@ void ResourcePolicyImpl::setVideoEnabled(bool videoEnabled)
 
 void ResourcePolicyImpl::acquire()
 {
-    m_status = RequestedResource;
-    m_resourceSet->acquire();
+    if (m_status != RequestedResource) {
+        m_status = RequestedResource;
+        m_resourceSet->acquire();
+    }
 }
 
 void ResourcePolicyImpl::release()
@@ -132,7 +134,5 @@ void ResourcePolicyImpl::handleResourcesLost()
         m_status = Initial;
         emit resourcesLost();
     }
-
-    m_resourceSet->release();
 }
 
